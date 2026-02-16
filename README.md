@@ -85,6 +85,22 @@ This project will demonstrate:
 - Experimental design under controlled data conditions
 - Analytical evaluation beyond accuracy
 
+## Repository Structure
+
+ner-comparison-project/
+│
+├── data/
+├── notebooks/
+│   ├── 01_feature_based_model.ipynb
+│   ├── 02_bilstm_model.ipynb
+│   ├── 03_sparsity_experiments.ipynb
+│
+├── models/
+├── src/
+├── results/
+└── README.md
+
+
 ## Author
 
 Efe Mirkan Guner </br>
