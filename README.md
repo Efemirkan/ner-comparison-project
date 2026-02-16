@@ -87,6 +87,7 @@ This project will demonstrate:
 
 ## Repository Structure
 
+```
 ner-comparison-project/
 │
 ├── data/
@@ -99,6 +100,7 @@ ner-comparison-project/
 ├── src/
 ├── results/
 └── README.md
+```
 
 
 ## Author
