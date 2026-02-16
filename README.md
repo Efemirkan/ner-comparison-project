@@ -92,6 +92,7 @@ ner-comparison-project/
 │
 ├── data/
 ├── notebooks/
+│   ├── 00_data_exploration.ipynb
 │   ├── 01_feature_based_model.ipynb
 │   ├── 02_bilstm_model.ipynb
 │   ├── 03_sparsity_experiments.ipynb
