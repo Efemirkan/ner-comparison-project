@@ -14,6 +14,7 @@ def dataset_stats(sents, tags):
 
 def sent_length_distribution(sents):
 
+    # Store length of sentences
     length = [len(sent) for sent in sents]
 
     print(f"Median length: {np.median(length)}")
@@ -22,6 +23,7 @@ def sent_length_distribution(sents):
 
 def check_sanity(sents, tags):
 
+    # Check tags and tokens matched if not print the mismatch
     for s, t in zip(sents, tags):
         assert len(s) == len(t), f"Mismatch in {s} and {t}"
 
