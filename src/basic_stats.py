@@ -71,4 +71,7 @@ def entity_distribution(tags):
 
     without_o_count = {ent: count for ent, count in entities_counts.items() if ent != "O"}
 
+    entities_counts = dict(sorted(entities_counts.items()))
+    without_o_count = dict(sorted(without_o_count.items()))
+    
     return entities_counts, without_o_count
