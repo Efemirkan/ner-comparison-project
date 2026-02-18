@@ -4,7 +4,7 @@ def load_dataset(filepath):
     current_sentence = [] # to store process sentences
 
 
-    with open("data/raw/train.txt", 'r', encoding='utf-8') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
 
