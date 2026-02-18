@@ -1,4 +1,5 @@
 import numpy as np
+from collections import Counter
 
 def dataset_stats(sents, tags):
 
@@ -28,3 +29,23 @@ def check_sanity(sents, tags):
         assert len(s) == len(t), f"Mismatch in {s} and {t}"
 
     print(f"Tokens and tags matched")
+
+def tag_distribution(tags):
+
+    # Store all tags in the list
+    all_tags = [tag for tags_sent in tags for tag in tags_sent]
+
+    tag_counts = Counter(all_tags)
+
+    # Compute percentage
+    total_tokens = sum(tag_counts.values()) # to store number of tokens
+
+    tag_count_per = {}
+    for label, count in tag_counts.items():
+        percentage = 100 * count / total_tokens
+        tag_count_per[label] = percentage
+
+
+    return tag_counts, tag_count_per
+
+
