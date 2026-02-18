@@ -18,7 +18,7 @@ def sent_length_distribution(sents):
 
     print(f"Median length: {np.median(length)}")
     print(f"95th percentile: {np.percentile(length, 95)}")
-    print(f"Max length: {np.max(length)}")
+    print(f"Max length: {max(length)}")
 
 def check_sanity(sents, tags):
 
