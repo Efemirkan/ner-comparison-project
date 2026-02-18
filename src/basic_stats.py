@@ -40,12 +40,35 @@ def tag_distribution(tags):
     # Compute percentage
     total_tokens = sum(tag_counts.values()) # to store number of tokens
 
-    tag_count_per = {}
-    for label, count in tag_counts.items():
-        percentage = 100 * count / total_tokens
-        tag_count_per[label] = percentage
+    tag_count_per = {} # to store tag and pencentage
+    for tag, count in tag_counts.items():
+        percentage = round(100 * count / total_tokens, 2) # to compute percentage
+        tag_count_per[tag] = percentage
 
+    # Sort by key to compare the sets
+    tag_counts = dict(sorted(tag_counts.items()))
+    tag_count_per = dict(sorted(tag_count_per.items()))
 
     return tag_counts, tag_count_per
 
+def entity_distribution(tags):
 
+    # Store all tags in the list
+    all_tags = [tag for tags_sent in tags for tag in tags_sent]
+
+    # Store only entities
+    entities = []
+    for tag in all_tags:
+
+        # Handle with "O"
+        if tag == "O":
+            entities.append("O")
+            continue
+
+        entities.append(tag.split("-")[1])
+
+    entities_counts = Counter(entities)
+
+    without_o_count = {ent: count for ent, count in entities_counts.items() if ent != "O"}
+
+    return entities_counts, without_o_count
