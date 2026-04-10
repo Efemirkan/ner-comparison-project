@@ -1,0 +1,19 @@
+# datasets
+data/
+
+# large files
+*.csv
+*.json
+*.zip
+
+# models
+models/
+*.pt
+*.pth
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+
+# env
+venv/
+.env
