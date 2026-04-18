@@ -3,14 +3,13 @@ def load_dataset(filepath):
     all_sentences = [] # to store sentences
     current_sentence = [] # to store process sentences
 
-
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
 
             # Handle with sentence boundaries
             if not line:
-                if len(current_sentence) > 0:
+                if current_sentence:
                     all_sentences.append(current_sentence)
                     current_sentence = [] # to reset the processing sentences
                 continue
@@ -34,3 +33,47 @@ def load_dataset(filepath):
     tags = [[y for x,y in sentence] for sentence in all_sentences]
 
     return sentences, tags
+
+def load_dataset_lr(filepath):
+
+    all_sentences = [] # to store sentences
+    current_sentence = [] # to store process sentences
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+
+            # Handle with sentence boundaries
+            if not line:
+                if current_sentence:
+                    all_sentences.append(current_sentence)
+                    current_sentence = []
+                continue
+            
+            # Remove the first line
+            if line.startswith('-DOCSTART-'):
+                continue
+
+            # Split token and tags
+            parts = line.split()
+
+            # Skip if any column missing or extra
+            if len(parts) != 4:
+                continue
+            
+            # Unpack parts 
+            word, pos, chunk, ner = parts
+
+            # Append to current sentences in require form
+            current_sentence.append({
+                                    'word': word,
+                                    'pos': pos,
+                                    'chunk': chunk,
+                                    'ner': ner,
+                                    })
+
+    # To handle with last sentence, but actually we do not need for this dataset
+    if current_sentence:
+        all_sentences.append(current_sentence)
+
+    return all_sentences

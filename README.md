@@ -30,7 +30,10 @@ Features include:
 - Capitalisation
 - Common Prefixes and Suffixes
 - PoS tag
+- Chunk tag
+- Simple token shape cues digits, hyphens and punctuation
 - A small context window around the token
+- Sentence boundary markers
 
 The key assumption of this model is that each token is classified independently, meaning it does not explicitly model dependencies between neighbouring labels.
 
