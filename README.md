@@ -58,26 +58,32 @@ To simulate low-resource settings, both models are trained on:
 - 25%
 - 10%
 
-to unveil that which model degrades more gracefully under sparsity.
+to determine which model degrades more gracefully under sparsity.
 
 ## Evaluation
 
 The models are evaluated using:
 
 - Token-level accuracy
-- Entity-level Precision and Recall
-- Entity-level F1 score
-- Micro and Macro F1
-- Per class F1
+- Token-level precision, recall, and F1
+- Token-level macro and weighted F1
+- Entity-level precision, recall, and F1
+- Per-entity span-level F1
 
-In addition to overall performance, I focus on:
+In addition to overall performance, I also analyse:
+
+- Confusion matrix for non-O labels
+
+This provides both token-level and entity-level perspectives, allowing me to evaluate not only how well labels are predicted individually, but also how well complete entity spans are identified.
+
+For the full comparison between models, I further consider more detailed error patterns, including:
 
 - Rare entities (less than 5 occurrences)
 - Frequent entities (more than 20 occurrences)
 - Boundary detection errors
 - Confusion between similar classes
 
-This allows a more detailed comparison.
+These analyses are used to better understand model behaviour under data sparsity and to explain performance differences between the feature-based and neural approaches.
 
 ## Why This Project
 
