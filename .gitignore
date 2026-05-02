@@ -12,8 +12,9 @@ models/
 *.pth
 *.pkl
 
-# notebooks checkpoints
+# checkpoints
 .ipynb_checkpoints/
+src/__pycache__
 
 # env
 venv/

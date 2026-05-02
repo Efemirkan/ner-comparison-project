@@ -37,17 +37,18 @@ Features include:
 
 The key assumption of this model is that each token is classified independently, meaning it does not explicitly model dependencies between neighbouring labels.
 
-2- Neural Sequence Model
-Model: Bidirectional LSTM
+2- Neural Sequence Model  
+Model: Character-CNN BiLSTM-CRF
 
 Architecture:
+- Pretrained GloVe word embeddings
+- Character-level CNN representation for each word
+- Concatenation of word embeddings and character representations
+- Bidirectional LSTM encoder
+- CRF output layer for sequence-level decoding
 
-- Embedding layer
-- BiLSTM
-- Linear layer
-- Softmax output per token
+The character CNN helps the model handle rare and unseen words by learning subword patterns such as prefixes, suffixes, and capitalisation. The BiLSTM captures left and right context, while the CRF models dependencies between neighbouring labels and improves entity boundary consistency.
 
-The BiLSTM captures both left and right context, which is important for entity boundaries.
 
 ## Data Sparsity Experiments
 
