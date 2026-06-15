@@ -8,6 +8,7 @@ data/
 
 # models
 models/
+results/
 *.pt
 *.pth
 *.pkl
